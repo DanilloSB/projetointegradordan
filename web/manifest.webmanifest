@@ -1,5 +1,5 @@
-"name": "Pizzaria Torrent",
-    "short_name": "AprendPWA",
+"name": "pizzaria torrent",
+    "short_name": "pizzaria torrent",
     "description": "WEB APP para aprender PWA (Disciplina PAMII).",
     "display": "standalone",
     "start_url":"index.html",    
