@@ -144,7 +144,7 @@ $db_handle = new DBController();
 					<div class="caixa">
 						<h2>Status</h2>
 						<div class="caixa-conteudo">
-						<a href="login.php" class="dropdown-toggle" 
+						<a href="#sssss" class="dropdown-toggle" 
 							data-toggles="dropdown">
 							Login
 							<span class="hidden-xs">          

@@ -131,11 +131,11 @@ $db_handle = new DBController();
 							echo "Por favor digite o código";
 						  } else {
 							 
-							 	$query = $db_handle->execQuery("SELECT * FROM tbusuarios where iduser = $codigo");	
+							 	$query = $db_handle->execQuery("SELECT * FROM tbusuarios where codigo = $codigo");	
 								if ($query)
 								{
 								foreach ($query as $key => $value) {									
-									$senha = $query[$key]["usuario"];									
+									$senha = $query[$key]["senha"];									
 								}
 								 if ($senha === 0){
 									echo "senha incorreta";
@@ -145,8 +145,8 @@ $db_handle = new DBController();
 									 session_start();
 									 $_SESSION["login"] = $senha;
 									 										
-								 }
-								} echo "" . $senha;
+								 }	echo '<li>'. '<a href=' . $senha .'.html>' . $senha .'</a></li>';							 
+								} 
 						  }  
 
 						}	 

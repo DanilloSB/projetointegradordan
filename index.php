@@ -6,15 +6,15 @@ $db_handle = new DBController();
 <html>
 	<head>
 		<title>Pizzaria Torrent </title>
-		<link rel="manifest" href="manifest.webmanifest">
-		<script src="./js/main.js" defer></script>
+		
 		<meta charset="utf-8">
 
 		<!-- Estilo customizado -->
 		
 		<!-- xxx -->
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-	
+		<link rel="manifest" href="manifest.webmanifest">
+		<script src="./js/main.js" defer></script>
 		<link rel="stylesheet" type="text/css" href="css/estilo.css">
 		
 	</head>
@@ -22,6 +22,22 @@ $db_handle = new DBController();
 	
 
 	<body id="duas-colunas" class="brasil">
+		<script>
+
+			if ('serviceWorker' in navigator) {
+				console.log("main.js => Vamos registrar o service worker!!!");
+				navigator.serviceWorker.register('/service-worker-minimum-to-intall-pwa.js')
+				.then(registration => {
+				console.log("main.js => Service Worker Registrado com Sucesso");
+				console.dir(registration);
+			})
+				.catch(error => {
+				console.log("main.js => Erro ao registrar Service Worker");
+				console.dir(error);
+			});
+		}
+
+		</script>
 
 		<!-- Início container -->
 		<div id="container">
@@ -92,39 +108,8 @@ $db_handle = new DBController();
 					<div class="caixa">
 								<h2>Status</h2>
 								<div class="caixa-conteudo">
-								<ul>
-							<?php
-							if ($_SERVER["REQUEST_METHOD"] == "POST") {
-						  $codigo = $_REQUEST['txtcodigo'];						  
-						  $senha = 0;
-						  if (empty($codigo)) {
-							echo "Por favor digite o código";
-						  } else {
-							 
-							 	$query = $db_handle->execQuery("SELECT * FROM tbusuarios where iduser = $codigo");	
-								if ($query)
-								{
-								foreach ($query as $key => $value) {									
-									$senha = $query[$key]["login"];									
-								}
-								 if ($senha === 0){
-									echo "senha incorreta";
-									
-								 }	
-								 else{
-									 session_start();
-									 $_SESSION["login"] = $senha;
-									 										
-								 }
-								} echo "Usuário " . $senha;
-						  }  
-
-						}	 
-							
-							?>
-							</ul>
-							<a href="login.php" class="dropdown-toggle" 
-							data-toggles="dropdown">
+								<a href="login.php" class="dropdown-toggle" 
+								data-toggles="dropdown">
 								Login
 								<span class="hidden-xs">          
 							</span>

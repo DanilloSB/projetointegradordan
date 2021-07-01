@@ -1,3 +1,5 @@
+<script>
+
 if ('serviceWorker' in navigator) {
 	console.log("main.js => Vamos registrar o service worker!!!");
 	navigator.serviceWorker.register('/service-worker-minimum-to-intall-pwa.js')
@@ -10,3 +12,4 @@ if ('serviceWorker' in navigator) {
 		console.dir(error);
 	});
 }
+</script>
